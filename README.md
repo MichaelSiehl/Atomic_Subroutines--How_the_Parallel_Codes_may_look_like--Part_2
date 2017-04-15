@@ -106,7 +106,7 @@ end subroutine OOOPimscSpinWaitBulkSync_atomic_intImageActivityFlag99_CA
 
 ```
 
-The adapted parallel logic codes are much shorter by now and do not contain any spin-wait loop any more:
+The adapted parallel logic codes do not contain any spin-wait loop any more:
 
 ```fortran
 subroutine OOOPimsc_SynchronizeTheInvolvedImages_CA (Object_CA, intNumberOfImages,intA_RemoteImageNumbers)

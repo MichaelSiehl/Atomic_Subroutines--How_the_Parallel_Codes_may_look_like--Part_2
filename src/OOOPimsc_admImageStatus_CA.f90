@@ -416,7 +416,7 @@ subroutine OOOPimscSpinWaitBulkSync_atomic_intImageActivityFlag99_CA (Object_CA,
       exit ! exit the do loop if all involved remote images are in state
                                          ! intCheckImageActivityFlag
     end if
-    ! (be aware: due to the first if statement, this would be error prone in real world programming,
+    ! (be aware: due to the second if statement in the loop, this would be error prone in real world programming,
     !  but it is safe for this example program)
   end do
   !

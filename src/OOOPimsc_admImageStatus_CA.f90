@@ -259,9 +259,14 @@ subroutine OOOPimscSAElement_atomic_intImageActivityFlag99_CA (Object_CA, intIma
                                                                 !
     ! execute sync memory for remote atomic_define:
     if (logSyncMemoryExecution) call OOOPimsc_subSyncMemory (Object_CA) ! execute sync memory
+
+! the following generates 'error #8583: COARRAY argument of ATOMIC_DEFINE/ATOMIC_REF intrinsic subroutine shall be a coarray.'
+! with ifort 18 beta:
     call atomic_define(Object_CA [intImageNumber] % mA_atomic_intImageActivityFlag99(intArrIndex,1), intImageActivityFlag)
-    call atomic_define(Object_CA % mA_atomic_intImageActivityFlag99(intArrIndex,1), intImageActivityFlag)
-    !
+! the following does not generate an error with ifort 18 beta:
+!    call atomic_define(Object_CA % mA_atomic_intImageActivityFlag99(intArrIndex,1), intImageActivityFlag)
+
+!
   end if
   !
                                                                 call OOOGglob_subResetProcedures

@@ -303,7 +303,7 @@ subroutine IIinma_ActivateTeamManagerImages (Object)
   !!!  for IIimma_SYNC_CheckActivityFlag    !!!!
   ! activate the TeamManagers on the (remote) images (as given by TeamManagers.txt)
   !
-  use OOOPimmc_admImageManager_CA ! access corresponding coarrays to
+  ! use OOOPimmc_admImageManager_CA ! access corresponding coarrays to
   use OOOPimsc_admImageStatus_CA  ! communicate with remote or local PGAS memory
   !
   type (OOOPinma_adtInitialManager), intent (in) :: Object

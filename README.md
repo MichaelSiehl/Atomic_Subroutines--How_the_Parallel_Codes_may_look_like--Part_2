@@ -23,7 +23,7 @@ subroutine OOOPimscSpinWaitBulkSync_atomic_intImageActivityFlag99_CA (Object_CA,
   ! using a spin-wait loop synchronizaton. Thus, the procedure implements a customized synchronization
   ! routine using atomic subroutines and the sync memory statement. Ordered execution segments among the involved images
   ! are not required.
-  type (OOOPimsc_adtImageStatus_CA), codimension[*], volatile, intent (inout) :: Object_CA
+  type (OOOPimsc_adtImageStatus_CA), codimension[*], intent (inout) :: Object_CA
   integer(OOOGglob_kint), intent (in) :: intCheckImageActivityFlag
   integer(OOOGglob_kint), intent (in) :: intNumberOfImages ! these are the number of involved remote images
   integer(OOOGglob_kint), dimension (1:intNumberOfImages), intent (in) :: intA_RemoteImageNumbers
@@ -114,7 +114,7 @@ subroutine OOOPimsc_SynchronizeTheInvolvedImages_CA (Object_CA, intNumberOfImage
   ! among a number of involved remote images. To do so, this routine gets executed on a separate coarray image
   ! (on image 1 with this example)
   !
-  type (OOOPimsc_adtImageStatus_CA), codimension[*], volatile, intent (inout) :: Object_CA
+  type (OOOPimsc_adtImageStatus_CA), codimension[*], intent (inout) :: Object_CA
   integer(OOOGglob_kint), intent (in) :: intNumberOfImages ! these are the number of involved remote images
   integer(OOOGglob_kint), dimension (intNumberOfImages), intent (in) :: intA_RemoteImageNumbers
   integer(OOOGglob_kint) :: status = 0 ! error status
@@ -265,7 +265,7 @@ subroutine OOOPimsc_WaitForSegmentSynchronization_CA (Object_CA, intSetFromImage
   ! to the remote image through array index 'SetFromImageNumber'.
   ! Image status turns into 'SendetCurrentSegmentNumber'.
   ! (the involved images (not image 1) will execute this)
-  type (OOOPimsc_adtImageStatus_CA), codimension[*], volatile, intent (inout) :: Object_CA
+  type (OOOPimsc_adtImageStatus_CA), codimension[*], intent (inout) :: Object_CA
   integer(OOOGglob_kint), intent (in) :: intSetFromImageNumber ! this is the remote image number (image 1)
                                                                ! which initiated the synchronization
   integer(OOOGglob_kint) :: status = 0 ! error status
@@ -327,7 +327,7 @@ subroutine OOOPimsc_DoSegmentSynchronization_CA (Object_CA, intSetFromImageNumbe
   ! to the remote image through array index 'SetFromImageNumber'.
   ! Image status turns into 'SendetCurrentSegmentNumber'.
   ! (the involved images (not image 1) will execute this)
-  type (OOOPimsc_adtImageStatus_CA), codimension[*], volatile, intent (inout) :: Object_CA
+  type (OOOPimsc_adtImageStatus_CA), codimension[*], intent (inout) :: Object_CA
   integer(OOOGglob_kint), intent (in) :: intSetFromImageNumber ! this is the remote image number (image 1)
                                                                ! which initiated the synchronization
   integer(OOOGglob_kint) :: status = 0 ! error status
